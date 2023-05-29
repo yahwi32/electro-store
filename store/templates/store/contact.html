@@ -1,0 +1,51 @@
+{% extends 'store/_Master.html' %}
+{% load static %}
+{% block title_tab %}Shop| Liên hệ{% endblock %}
+
+{% block main_content %}
+<div class="container-fluid contact_us_bg_img">
+    <div class="container">
+        <div class="row">
+            <a href="#" class="fh5co_con_123"><i class="fa fa-home"></i></a>
+            <a href="#" class="fh5co_con pt-2"> Contact  Us </a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mb-4">
+    <div class="container">
+        <div class="col-12 text-center contact_margin_svnit ">
+         
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form method="post" class="row" id="fh5co_contact_form">
+                    {% csrf_token %}
+                    <div class="col-12 py-3">
+                        {{ result|safe }}
+                    </div>
+                    <div class="col-12 py-3">
+                        {{ form.name }}
+                    </div>
+                    <div class="col-6 py-3">
+                        {{ form.email }}
+                    </div>
+                    <div class="col-6 py-3">
+                        {{ form.phone_number }}
+                    </div>
+                    <div class="col-6 py-3">
+                        {{ form.subject }}
+                    </div>
+                    <div class="col-12 py-3">
+                        {{ form.message }}
+                    </div>
+                    <div class="col-12 py-3 text-center">  
+                        <button type="submit" class="btn contact_btn" name="btnSend" value="Send Message">Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

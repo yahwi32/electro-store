@@ -1,0 +1,95 @@
+{% extends 'store/_Master.html' %}
+{% load static %}
+{% block title_tab %}Shop| Đăng nhập / Đăng ký{% endblock title_tab %}
+
+{% block main_content %}   
+<!-- Breadcrumb Start  -->
+<div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'store:index' %}">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Đăng nhập & Đăng ký</li>
+        </ul>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Login Start -->
+<div class="login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="register-form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ result_signup|safe }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_signup.last_name.label }}
+                                {{ form_signup.last_name }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_signup.first_name.label }}
+                                {{ form_signup.first_name }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_signup.email.label }}
+                                {{ form_signup.email }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_signup.tel.label }}
+                                {{ form_signup.tel }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_signup.password.label }}
+                                {{ form_signup.password }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_signup.confirm_password.label }}
+                                {{ form_signup.confirm_password }}
+                            </div>
+                            <div class="col-md-12">
+                                {{ form_signup.address.label }}
+                                {{ form_signup.address }}
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn" name="btnDangKy" value="Đăng ký">Đăng ký</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="login-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                                <input class="form-control" type="text" placeholder="Email" name="email">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Mật khẩu</label>
+                                <input class="form-control" type="password" placeholder="Mật khẩu" name="mat_khau">
+                            </div>
+                            <!-- <div class="col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="newaccount">
+                                    <label class="custom-control-label" for="newaccount">Keep me signed in</label>
+                                </div>
+                            </div> -->
+                            <div class="col-md-12">
+                                <button class="btn" name="btnDangNhap" value="Đăng nhập">Đăng nhập</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login End -->
+
+{% endblock %}
